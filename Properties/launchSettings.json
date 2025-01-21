@@ -1,0 +1,10 @@
+{
+   "profiles": {
+      "Development": {
+         "commandName": "Project",
+         "environmentVariables": {
+            "BOT_API_TOKEN": "7709986675:AAGbURO58XgGovdLIyJ144nlemT71IT50GU"
+         }
+      }
+   }
+}

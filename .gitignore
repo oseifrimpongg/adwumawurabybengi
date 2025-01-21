@@ -1,0 +1,10 @@
+# Development
+.vscode
+.idea
+
+# Environment Variable
+.env
+
+# .NET Generated Files
+bin/
+obj/
