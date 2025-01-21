@@ -8,3 +8,6 @@
 # .NET Generated Files
 bin/
 obj/
+
+Properties/
+launchSettings.json
