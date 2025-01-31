@@ -21,7 +21,7 @@ public class HelpCommand : IBotCommand
       });
 
       await botClient.SendMessage(
-               chatId: update?.Message?.From?.Id ?? 694873497,
+               chatId: update?.Message?.From?.Id ?? long.Parse(Environment.GetEnvironmentVariable("ADMIN_ID") ?? "123456"),
                text: commandMessage,
                replyMarkup: inlineKeyboardMarkup
             );

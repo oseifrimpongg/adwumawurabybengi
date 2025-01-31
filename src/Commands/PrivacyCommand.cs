@@ -13,7 +13,7 @@ public class PrivacyCommand : IBotCommand
       string commandMessage = "The [Bengi Privacy Policy](https://telegra.ph/Bengi-Privacy-Policy-07-14) by [Michael Osei Frimpong](oseifrimpongg.t.me)";
 
       await botClient.SendMessage(
-         chatId: update?.Message?.From?.Id ?? 694873497,
+         chatId: update?.Message?.From?.Id ?? long.Parse(Environment.GetEnvironmentVariable("ADMIN_ID") ?? "123456"),
          text: commandMessage,
          parseMode: ParseMode.Markdown,
          linkPreviewOptions: new LinkPreviewOptions() { PreferLargeMedia = true, ShowAboveText = false }
