@@ -6,13 +6,22 @@ using System.Reflection;
 using Adwumawura.src.Commands;
 using Telegram.Bot.Types.Enums;
 using Adwumawura.src.Middleware;
+using MongoDB.Driver;
+using Adwumawura.src.Db;
+using MongoDB.Bson;
 
 // Variables Setup
 Env.Load();
 
+// Variables
+string BotToken = Environment.GetEnvironmentVariable("BOT_TOKEN") ?? "";
+string Channel_Id = Environment.GetEnvironmentVariable("CHANNEL_ID") ?? "";
+string MongoDbConnectionString = Environment.GetEnvironmentVariable("MONGODB_CONNECTION_STRING") ?? "";
+string DatabaseName = Environment.GetEnvironmentVariable("DATABASE_NAME") ?? "";
+
 // Setup
 using CancellationTokenSource cts = new CancellationTokenSource();
-TelegramBotClient bot = new TelegramBotClient(token: Environment.GetEnvironmentVariable("BOT_TOKEN") ?? "", cancellationToken: cts.Token);
+TelegramBotClient bot = new TelegramBotClient(token: BotToken, cancellationToken: cts.Token);
 
 Console.WriteLine($"Bot is active");
 
@@ -24,13 +33,45 @@ Dictionary<string, IBotCommand> commands = Assembly
                                              .Select(type => (IBotCommand)Activator.CreateInstance(type)!)
                                              .ToDictionary(cmd => cmd.Name, cmd => cmd);
 
-ChannelSubscriptionMiddleware? channelMembershipStatus = new ChannelSubscriptionMiddleware(bot, Environment.GetEnvironmentVariable("CHANNEL_ID") ?? "");
+ChannelSubscriptionMiddleware? channelMembershipStatus = new ChannelSubscriptionMiddleware(bot, Channel_Id);
+
+var mongoClient = new MongoDbClient(MongoDbConnectionString, DatabaseName);
+var usersCollection = mongoClient.GetUsers();
 
 bot.StartReceiving(
    async (client, update, ct) =>
    {
       bool isSubscribed = await channelMembershipStatus.CheckSubscription(update);
       if (!isSubscribed) return;
+
+      User userUpdate = update.Message.From;
+      if (userUpdate is null) return;
+
+      var existingUser = usersCollection.Find(u => u.UserId == userUpdate.Id).FirstOrDefault();
+
+      if (existingUser is null)
+      {
+         var user = new UserModel()
+         {
+            Id = ObjectId.GenerateNewId(),
+            UserId = userUpdate.Id,
+            UserName = userUpdate?.Username,
+            FirstName = userUpdate?.FirstName,
+            LastName = userUpdate?.LastName,
+            JoinDate = DateTime.Now,
+            SubscriptionStatus = isSubscribed
+         };
+
+         try
+         {
+            await usersCollection.InsertOneAsync(user);
+         }
+         catch (Exception exception)
+         {
+            Console.WriteLine($"${exception.Message}");
+         }
+
+      }
 
       if (update.Type == UpdateType.Message && update.Message != null)
       {
