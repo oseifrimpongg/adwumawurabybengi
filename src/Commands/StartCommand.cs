@@ -17,12 +17,12 @@ public class StartCommand : IBotCommand
       {
          new []
          {
-            InlineKeyboardButton.WithCallbackData("Midwifery", "midwifery"),
-            InlineKeyboardButton.WithCallbackData("Nursing", "nursing"),
+            InlineKeyboardButton.WithCallbackData("Midwifery", "p/midwifery"),
+            InlineKeyboardButton.WithCallbackData("Nursing", "p/nursing"),
          },
          new []
          {
-            InlineKeyboardButton.WithCallbackData("Emergency Nursing", "emergency_nursing")
+            InlineKeyboardButton.WithCallbackData("Emergency Nursing", "p/emergency_nursing")
          }
       });
 
