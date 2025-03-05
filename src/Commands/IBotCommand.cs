@@ -6,5 +6,5 @@ namespace Adwumawura.src.Commands;
 public interface IBotCommand
 {
    string Name { get; }
-   Task ExecuteCommand(Update update, ITelegramBotClient botClient);
+   Task ExecuteCommand(ITelegramBotClient botClient, Update update);
 }
