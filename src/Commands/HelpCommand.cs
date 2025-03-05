@@ -8,7 +8,7 @@ public class HelpCommand : IBotCommand
 {
    public string Name => "/help";
 
-   public async Task ExecuteCommand(Update update, ITelegramBotClient botClient)
+   public async Task ExecuteCommand(ITelegramBotClient botClient, Update update)
    {
       string firstName = update?.Message?.Chat.FirstName ?? "user";
       string commandMessage = $"Welcome to the *Help Desk* 👨🏾‍💻 {firstName}\nHow can I assist you?";
