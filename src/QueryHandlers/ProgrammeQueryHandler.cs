@@ -30,15 +30,18 @@ public class ProgrammeQueryHandler : IQueryHandler
       }
 
       inlineKeyboardRows.Add(yearButtons);
-      inlineKeyboardRows.Add(new List<InlineKeyboardButton>() { InlineKeyboardButton.WithCallbackData("🔙 Go Back", "backToStart") });
+      inlineKeyboardRows.Add(new List<InlineKeyboardButton>() { InlineKeyboardButton.WithCallbackData("⬅️ Back", "back/start") });
       InlineKeyboardMarkup inlineKeyboard = new InlineKeyboardMarkup(inlineKeyboardRows);
 
       string commandMessage = $"Welcome to {programmeName}, please choose a year from the buttons below.";
 
-      // TODO: Replace SendMessage with EditMessageText and implement
-      await botClient.SendMessage(
+      if (update?.CallbackQuery?.Message is null) return;
+
+      await botClient.EditMessageText
+      (
          chatId: update?.CallbackQuery?.From?.Id ?? long.Parse(Environment.GetEnvironmentVariable("ADMIN_ID") ?? "123456"),
          text: commandMessage,
+         messageId: update.CallbackQuery.Message.Id,
          replyMarkup: inlineKeyboard
       );
    }
