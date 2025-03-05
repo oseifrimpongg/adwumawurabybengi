@@ -8,9 +8,20 @@ public class StartCommand : IBotCommand
 {
    public string Name => "/start";
 
-   public async Task ExecuteCommand(Update update, ITelegramBotClient botClient)
+   public async Task ExecuteCommand(ITelegramBotClient botClient, Update update)
    {
-      string firstName = update?.Message?.Chat.FirstName ?? "user";
+      (string commandMessage, InlineKeyboardMarkup inlineKeyboardMarkup) = GetStartMessage(update);
+
+      await botClient.SendMessage(
+         chatId: update?.Message?.From?.Id ?? long.Parse(Environment.GetEnvironmentVariable("ADMIN_ID") ?? "123456"),
+         text: commandMessage,
+         replyMarkup: inlineKeyboardMarkup
+      );
+   }
+
+   public static (string message, InlineKeyboardMarkup inlineKeyboard) GetStartMessage(Update update)
+   {
+      string firstName = update?.Message?.Chat.FirstName ?? update?.CallbackQuery?.From?.FirstName ?? "user";
 
       string commandMessage = $"Hi {firstName}! I am Adwumawura, you personal guide to all your course materials. Let's make studying easier and more fun and easier together!🎓\nFirst, choose your programme of study to get started. 🚀";
       InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup(new[]
@@ -26,10 +37,6 @@ public class StartCommand : IBotCommand
          }
       });
 
-      await botClient.SendMessage(
-         chatId: update?.Message?.From?.Id ?? long.Parse(Environment.GetEnvironmentVariable("ADMIN_ID") ?? "123456"),
-         text: commandMessage,
-         replyMarkup: inlineKeyboardMarkup
-      );
+      return (commandMessage, inlineKeyboardMarkup);
    }
 }
