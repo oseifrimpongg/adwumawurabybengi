@@ -39,7 +39,10 @@ Dictionary<string, IQueryHandler> queries = Assembly
                                              .GetTypes()
                                              .Where(type => typeof(IQueryHandler).IsAssignableFrom(type) && !type.IsInterface && !type.IsAbstract)
                                              .Select(type => (IQueryHandler)Activator.CreateInstance(type)!)
-                                             .ToDictionary(query => query.GetType().Name.Replace("ProgrammeQueryHandler", "p").ToLower(), query => query);
+                                             .ToDictionary(query => query.GetType().Name
+                                                                                    .Replace("ProgrammeQueryHandler", "p")
+                                                                                    .Replace("GoBackHandler", "back")
+                                                                                    .ToLower(), query => query);
 
 
 ChannelSubscriptionMiddleware? channelMembershipStatus = new ChannelSubscriptionMiddleware(bot, Channel_Id);
@@ -63,9 +66,9 @@ bot.StartReceiving(
       {
          string? command = update?.Message?.Text?.Split(" ")[0];
 
-         if (!string.IsNullOrEmpty(command) && commands.ContainsKey(command))
+         if (!string.IsNullOrEmpty(command) && commands.ContainsKey(command) && update is not null)
          {
-            await commands[command].ExecuteCommand(update ?? new Update(), client);
+            await commands[command].ExecuteCommand(client, update);
          }
       }
 
@@ -88,8 +91,8 @@ bot.StartReceiving(
    {
       Console.WriteLine($"{exception.Message}");
       return Task.CompletedTask;
-   }
-   , cancellationToken: cts.Token
+   },
+   cancellationToken: cts.Token
 
 );
 
