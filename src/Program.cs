@@ -1,6 +1,5 @@
 ﻿// Dependencies
 using Telegram.Bot;
-using Telegram.Bot.Types;
 using DotNetEnv;
 using System.Reflection;
 using Adwumawura.src.Commands;
