@@ -20,7 +20,7 @@ string DatabaseName = Environment.GetEnvironmentVariable("DATABASE_NAME") ?? "";
 // Setup
 using CancellationTokenSource cts = new CancellationTokenSource();
 // TelegramBotClient bot = new TelegramBotClient(token: BotToken, cancellationToken: cts.Token); // Production ready
-TelegramBotClient bot = new TelegramBotClient("7709986675:AAECwsyQwRTgw7gTvReOKistEZ64V4YfFYY", cancellationToken: cts.Token); // Testing
+TelegramBotClient bot = new TelegramBotClient("7709986675:AAHukJB2dDXy2K8hbJo8QWB-pDpgR5OoFiM", cancellationToken: cts.Token); // Testing
 
 Console.WriteLine($"Bot is active");
 
