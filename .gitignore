@@ -11,3 +11,7 @@ obj/
 
 Properties/
 launchSettings.json
+
+# TS Generated File
+dist/
+node_modules/
