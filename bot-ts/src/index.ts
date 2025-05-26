@@ -1,3 +1,4 @@
+// Setup Environment and variables
 import path from "path";
 import dotenv from "dotenv";
 dotenv.config({ path: path.resolve(__dirname, '../../.env') });
@@ -7,12 +8,17 @@ import express, { Application } from "express";
 import { Scenes, session, Telegraf } from "telegraf";
 
 import { channelSubscription } from "./middleware/channelSubscription";
-import { startCommand } from "./commands/start";
+import { StartCommand } from "./commands/start";
 
 // @ts-ignore importing registration js module
-import registrationWizard = require('./scenes/registration.js/index.js');
+import registrationWizard = require('./scenes/registrationScene.js');
 
 import { MyContext } from "./types/types";
+import { connectDB } from "./db/db";
+import { registrationCheck } from "./middleware/registration";
+
+// Database Connection
+connectDB();
 
 // Environment Setup
 const app: Application = express();
@@ -22,12 +28,14 @@ const bot = new Telegraf<MyContext>(process.env.BOT_TOKEN ?? "");
 const stage = new Scenes.Stage<MyContext>();
 stage.register(registrationWizard);
 
-// Telegraf Context Middleware
+// Middleware
 bot.use(session());
 bot.use(channelSubscription);
 bot.use(stage.middleware());
-bot.start(startCommand);
-bot.command('register', (ctx) => ctx.scene.enter('registration-wizard'));
+bot.use(registrationCheck);
+
+// Commands
+bot.start(StartCommand);
 
 
 // Bot launch
