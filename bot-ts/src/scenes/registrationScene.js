@@ -1,5 +1,7 @@
 const { Scenes, Markup } = require('telegraf');
 const { WizardScene } = Scenes;
+const { SaveUserInformation } = require("../db/functions");
+const { StartCommand } = require("../commands/start")
 
 const programmeYears = {
    Nursing: ["Year 1", "Year 2", "Year 3", "Year 4"],
@@ -47,21 +49,37 @@ const registrationWizard = new WizardScene(
       ctx.session.registration.year = ctx.message?.text;
       const { firstName, lastName, programme, year } = ctx.session.registration;
       await ctx.reply(
-         `Confirm:\n${firstName} ${lastName}\nProgramme: ${programme}\nYear: ${year}`,
+         `Confirm:\n${firstName} ${lastName}\nProgramme: ${programme}\nYear: ${year.replace("Year ", "")}`,
          Markup.keyboard([['Confirm'], ['Cancel']]).oneTime().resize()
       );
       return ctx.wizard.next();
    },
-   async (ctx) =>
+   async (ctx, next) =>
    {
-      if (ctx.message?.text === 'Confirm')
+      const isConfirmed = ctx.message?.text === 'Confirm';
+
+      await ctx.reply(
+         isConfirmed ? "✅ Registration complete!" : "❌ Registration cancelled.",
+         Markup.removeKeyboard()
+      );
+
+      if (isConfirmed)
       {
-         await ctx.reply("✅ Registration complete!", Markup.removeKeyboard());
-      } else
-      {
-         await ctx.reply("❌ Registration cancelled.", Markup.removeKeyboard());
+         try
+         {
+            let { firstName, lastName, programme, year } = ctx.session.registration;
+            year = Number(year.replace("Year ", ""));
+            const telegramId = Number(ctx.from.id);
+            await SaveUserInformation(telegramId, firstName, lastName, programme, year);
+         } catch (error)
+         {
+            console.error("SaveUserInformation Error:", error);
+         }
       }
-      return ctx.scene.leave();
+
+      await ctx.scene.leave();
+
+      return StartCommand(ctx);
    }
 );
 
