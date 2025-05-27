@@ -14,7 +14,7 @@ const registrationWizard = new WizardScene(
    async (ctx) =>
    {
       ctx.session.registration = {};
-      await ctx.reply("👋 Welcome to Adwumawura Bot\n📚 Your trusted assistant for accessing quality learning materials with ease.\nBy continuing to use this service, you acknowledge and accept that your information may be collected and used in accordance with our [Privacy Policy](https://telegra.ph/Bengi-Privacy-Policy-07-14). 🔒 We are committed to handling your data responsibly and securely.\nThank you for choosing Adwumawura Bot. 😊",
+      await ctx.reply("👋 Welcome to *Adwumawura*\n📚 Your assistant for accessing learning materials with ease.\n\nBy continuing to use this service, you acknowledge and accept that your information may be collected and used in accordance with our [Privacy Policy](https://telegra.ph/Bengi-Privacy-Policy-07-14). 🔒 We are committed to handling your data responsibly and securely.\nThank you for choosing Adwumawura Bot. 😊",
          {
             parse_mode: "Markdown",
             link_preview_options: {
@@ -59,34 +59,36 @@ const registrationWizard = new WizardScene(
          return await ctx.reply("Invalid programme. Use buttons.");
       }
       ctx.session.registration.programme = programme;
-      await ctx.reply("4️⃣ *Year of Study*:", {
-         parse_mode: "Markdown",
-         reply_markup: {
-            keyboard: Markup.keyboard(
-               programmeYears[programme].map(y => [y])
-            ),
-            one_time_keyboard: true,
-            resize_keyboard: true
-         }
-      });
+
+      const years = programmeYears[programme];
+      const chunkedYears = [];
+      for (let i = 0; i < years.length; i += 2)
+      {
+         chunkedYears.push(years.slice(i, i + 2));
+      }
+
+      await ctx.replyWithMarkdownV2("4️⃣ *Year of Study*",
+         Markup.keyboard(chunkedYears).oneTime().resize()
+      );
+
       return ctx.wizard.next();
    },
    async (ctx) =>
    {
       ctx.session.registration.year = ctx.message?.text;
       const { firstName, lastName, programme, year } = ctx.session.registration;
-      await ctx.reply(
-         `*Confirm*:\n${firstName} ${lastName}\nProgramme: ${programme}\nYear: ${year.replace("Year ", "")}`,
-         Markup.keyboard([['Confirm'], ['Cancel']]).oneTime().resize()
+      await ctx.replyWithMarkdownV2(
+         `*Your Information*:\n\nName: *${firstName} ${lastName}*\nProgramme: *${programme}*\nYear: *${year.replace("Year ", "")}*\n\nPlease confirm the data is accurate`,
+         Markup.keyboard([['Confirm ✅'], ['Cancel ❌']]).oneTime().resize()
       );
       return ctx.wizard.next();
    },
-   async (ctx, next) =>
+   async (ctx) =>
    {
-      const isConfirmed = ctx.message?.text === 'Confirm';
+      const isConfirmed = ctx.message?.text === 'Confirm ✅';
 
       await ctx.reply(
-         isConfirmed ? "✅ Registration complete!" : "❌ Registration cancelled.",
+         isConfirmed ? "Registration complete! ✅ " : " Registration cancelled. ❌",
          Markup.removeKeyboard()
       );
 
@@ -98,15 +100,16 @@ const registrationWizard = new WizardScene(
             year = Number(year.replace("Year ", ""));
             const telegramId = Number(ctx.from.id);
             await SaveUserInformation(telegramId, firstName, lastName, programme, year);
+            await ctx.scene.leave();
+            return StartCommand(ctx);
          } catch (error)
          {
             console.error("SaveUserInformation Error:", error);
          }
+      } else
+      {
+         return ctx.scene.enter('registration-wizard');
       }
-
-      await ctx.scene.leave();
-
-      return StartCommand(ctx);
    }
 );
 
