@@ -16,6 +16,8 @@ import registrationWizard = require('./scenes/registrationScene.js');
 import { MyContext } from "./types/types";
 import { connectDB } from "./db/db";
 import { registrationCheck } from "./middleware/registration";
+import { InterceptTextMessage } from "./intercepts/messageIntercept";
+import { InterceptCallback } from "./intercepts/callbackIntercept";
 
 // Database Connection
 connectDB();
@@ -36,6 +38,9 @@ bot.use(registrationCheck);
 
 // Commands
 bot.start(StartCommand);
+bot.on("message", InterceptTextMessage);
+bot.on("callback_query", InterceptCallback);
+// handle callbacks
 
 
 // Bot launch
