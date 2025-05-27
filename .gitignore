@@ -1,6 +1,7 @@
 # Development
 .vscode
 .idea
+.VSCodeCounter
 
 # Environment Variable
 .env
@@ -15,3 +16,4 @@ launchSettings.json
 # TS Generated File
 dist/
 node_modules/
+
