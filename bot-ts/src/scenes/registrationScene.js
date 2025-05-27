@@ -14,21 +14,41 @@ const registrationWizard = new WizardScene(
    async (ctx) =>
    {
       ctx.session.registration = {};
-      await ctx.reply("What's your first name?");
+      await ctx.reply("👋 Welcome to Adwumawura Bot\n📚 Your trusted assistant for accessing quality learning materials with ease.\nBy continuing to use this service, you acknowledge and accept that your information may be collected and used in accordance with our [Privacy Policy](https://telegra.ph/Bengi-Privacy-Policy-07-14). 🔒 We are committed to handling your data responsibly and securely.\nThank you for choosing Adwumawura Bot. 😊",
+         {
+            parse_mode: "Markdown",
+            link_preview_options: {
+               is_disabled: true
+            }
+         })
+
+      await new Promise(resolve => setTimeout(resolve, 2000));
+
+      await ctx.reply("To get started, we’d like to know a bit about you.\nPlease provide the following details:")
+
+      await new Promise(resolve => setTimeout(resolve, 2000));
+
+      await ctx.reply("1️⃣ *First Name*", { parse_mode: "Markdown" })
       return ctx.wizard.next();
    },
    async (ctx) =>
    {
       ctx.session.registration.firstName = ctx.message?.text;
-      await ctx.reply("What's your last name?");
+      await ctx.reply("2️⃣ *Last Name*", { parse_mode: "Markdown" })
       return ctx.wizard.next();
    },
    async (ctx) =>
    {
       ctx.session.registration.lastName = ctx.message?.text;
-      await ctx.reply("Select your programme:", Markup.keyboard([
-         ['Nursing'], ['Midwifery'], ['Emergency Nursing']
-      ]).oneTime().resize());
+      await ctx.reply("3️⃣ *Programme of Study*", {
+         reply_markup: {
+            keyboard: [
+               [{ text: "Nursing" }, { text: "Midwifery" }], [{ text: "Emergency Nursing" }]
+            ],
+            one_time_keyboard: true,
+            resize_keyboard: true
+         }, parse_mode: "Markdown"
+      });
       return ctx.wizard.next();
    },
    async (ctx) =>
@@ -39,9 +59,16 @@ const registrationWizard = new WizardScene(
          return await ctx.reply("Invalid programme. Use buttons.");
       }
       ctx.session.registration.programme = programme;
-      await ctx.reply("Select your year:", Markup.keyboard(
-         programmeYears[programme].map(y => [y])
-      ).oneTime().resize());
+      await ctx.reply("4️⃣ *Year of Study*:", {
+         parse_mode: "Markdown",
+         reply_markup: {
+            keyboard: Markup.keyboard(
+               programmeYears[programme].map(y => [y])
+            ),
+            one_time_keyboard: true,
+            resize_keyboard: true
+         }
+      });
       return ctx.wizard.next();
    },
    async (ctx) =>
@@ -49,7 +76,7 @@ const registrationWizard = new WizardScene(
       ctx.session.registration.year = ctx.message?.text;
       const { firstName, lastName, programme, year } = ctx.session.registration;
       await ctx.reply(
-         `Confirm:\n${firstName} ${lastName}\nProgramme: ${programme}\nYear: ${year.replace("Year ", "")}`,
+         `*Confirm*:\n${firstName} ${lastName}\nProgramme: ${programme}\nYear: ${year.replace("Year ", "")}`,
          Markup.keyboard([['Confirm'], ['Cancel']]).oneTime().resize()
       );
       return ctx.wizard.next();
@@ -84,3 +111,5 @@ const registrationWizard = new WizardScene(
 );
 
 module.exports = registrationWizard;
+
+
