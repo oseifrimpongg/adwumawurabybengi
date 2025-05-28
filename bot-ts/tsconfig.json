@@ -115,5 +115,6 @@
       "allowSyntheticDefaultImports": true,
       "resolveJsonModule": true,
       "types": [ "node" ],
-   }
+   },
+   "exclude": [ "node_modules", "dist", ".next", "build" ]
 }
