@@ -1,4 +1,4 @@
-import { ShowSemesters } from "../services/coursematerialservice";
+import { ShowSemesters } from "../services/courseMaterialService";
 import { MyContext } from "../types/types";
 
 const messageRoutes = {
