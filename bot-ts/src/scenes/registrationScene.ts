@@ -1,7 +1,7 @@
 const { Scenes, Markup } = require('telegraf');
 const { WizardScene } = Scenes;
 const { SaveUserInformation } = require("../db/functions");
-const { StartCommand } = require("../commands/start")
+const { StartCommand } = require("../commands/start");
 
 const programmeYears = {
    Nursing: ["Year 1", "Year 2", "Year 3", "Year 4"],
@@ -9,7 +9,7 @@ const programmeYears = {
    "Emergency Nursing": ["Year 3", "Year 4"]
 };
 
-const registrationWizard = new WizardScene(
+export const registrationWizard = new WizardScene(
    "registration-wizard",
    async (ctx) =>
    {
@@ -20,21 +20,21 @@ const registrationWizard = new WizardScene(
             link_preview_options: {
                is_disabled: true
             }
-         })
+         });
 
       await new Promise(resolve => setTimeout(resolve, 2000));
 
-      await ctx.reply("To get started, we’d like to know a bit about you.\nPlease provide the following details:")
+      await ctx.reply("To get started, we’d like to know a bit about you.\nPlease provide the following details:");
 
       await new Promise(resolve => setTimeout(resolve, 2000));
 
-      await ctx.reply("1️⃣ *First Name*", { parse_mode: "Markdown" })
+      await ctx.reply("1️⃣ *First Name*", { parse_mode: "Markdown" });
       return ctx.wizard.next();
    },
    async (ctx) =>
    {
       ctx.session.registration.firstName = ctx.message?.text;
-      await ctx.reply("2️⃣ *Last Name*", { parse_mode: "Markdown" })
+      await ctx.reply("2️⃣ *Last Name*", { parse_mode: "Markdown" });
       return ctx.wizard.next();
    },
    async (ctx) =>
@@ -61,13 +61,14 @@ const registrationWizard = new WizardScene(
       ctx.session.registration.programme = programme;
 
       const years = programmeYears[programme];
-      const chunkedYears = [];
+      const chunkedYears: { text: string; }[][] = [];
       for (let i = 0; i < years.length; i += 2)
       {
-         chunkedYears.push(years.slice(i, i + 2));
+         chunkedYears.push(years.slice(i, i + 2).map(y => ({ text: y })));
       }
 
-      await ctx.replyWithMarkdownV2("4️⃣ *Year of Study*",
+      await ctx.replyWithMarkdownV2(
+         "4️⃣ *Year of Study*",
          Markup.keyboard(chunkedYears).oneTime().resize()
       );
 
@@ -112,7 +113,3 @@ const registrationWizard = new WizardScene(
       }
    }
 );
-
-module.exports = registrationWizard;
-
-

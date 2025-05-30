@@ -10,8 +10,8 @@ import { Scenes, session, Telegraf } from "telegraf";
 import { channelSubscription } from "./middleware/channelSubscription";
 import { StartCommand } from "./commands/start";
 
-// @ts-ignore importing registration js module
-import registrationWizard = require('./scenes/registrationScene.js');
+// Scenes
+import { registrationWizard } from "./scenes/registrationScene";
 
 import { MyContext } from "./types/types";
 import { connectDB } from "./db/db";
@@ -40,8 +40,6 @@ bot.use(registrationCheck);
 bot.start(StartCommand);
 bot.on("message", InterceptTextMessage);
 bot.on("callback_query", InterceptCallback);
-// handle callbacks
-
 
 // Bot launch
 bot.telegram.setWebhook(process.env.RepoService ?? "");
