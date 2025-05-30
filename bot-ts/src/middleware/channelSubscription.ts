@@ -34,7 +34,7 @@ export const channelSubscription = async (ctx: Context, next: NextFunction) =>
 
       if (!isSubscribed)
       {
-         await ctx.reply(
+         return await ctx.reply(
             `Hi!\nPlease join [Bengi News](benginews.t.me) in order to access the bot.\nClick /start to enjoy the bot`,
             {
                parse_mode: "Markdown",
