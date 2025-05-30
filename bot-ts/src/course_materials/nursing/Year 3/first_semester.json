@@ -1,52 +1,202 @@
 [
-  {
-    "code": "NUR101",
-    "title": "Introduction to Nursing",
-    "files": [
-      {
-        "fileName": "Lecture Notes.pdf",
-        "fileId": "abc123",
-        "type": "pdf",
-        "sizeMB": 2.4
-      },
-      {
-        "fileName": "Slide Deck.pptx",
-        "fileId": "def456",
-        "type": "presentation",
-        "sizeMB": 1.8
-      },
-      {
-        "fileName": "Video Lecture.mp4",
-        "fileId": "ghi789",
-        "type": "video",
-        "duration": "00:30:12",
-        "sizeMB": 48.2
-      }
-    ]
-  },
-  {
-    "code": "BIO104",
-    "title": "Human Anatomy",
-    "files": [
-      {
-        "fileName": "Study Guide.pdf",
-        "fileId": "xyz987",
-        "type": "pdf",
-        "sizeMB": 3.1
-      },
-      {
-        "fileName": "Lab Manual.pdf",
-        "fileId": "klm321",
-        "type": "pdf",
-        "sizeMB": 2.6
-      },
-      {
-        "fileName": "Anatomy Overview.mp4",
-        "fileId": "uvw555",
-        "type": "video",
-        "duration": "00:42:09",
-        "sizeMB": 60.3
-      }
-    ]
-  }
+   {
+      "code": "gsl",
+      "title": "GSL",
+      "files": [
+         {
+            "fileName": "Lecture Notes.pdf",
+            "fileId": "abc123",
+            "type": "pdf",
+            "sizeMB": 2.4
+         },
+         {
+            "fileName": "Slide Deck.pptx",
+            "fileId": "def456",
+            "type": "presentation",
+            "sizeMB": 1.8
+         },
+         {
+            "fileName": "Video Lecture.mp4",
+            "fileId": "ghi789",
+            "type": "video",
+            "duration": "00:30:12",
+            "sizeMB": 48.2
+         }
+      ]
+   },
+   {
+      "code": "hea_e",
+      "title": "Health Education",
+      "files": [
+         {
+            "fileName": "Lecture Notes.pdf",
+            "fileId": "abc123",
+            "type": "pdf",
+            "sizeMB": 2.4
+         },
+         {
+            "fileName": "Slide Deck.pptx",
+            "fileId": "def456",
+            "type": "presentation",
+            "sizeMB": 1.8
+         },
+         {
+            "fileName": "Video Lecture.mp4",
+            "fileId": "ghi789",
+            "type": "video",
+            "duration": "00:30:12",
+            "sizeMB": 48.2
+         }
+      ]
+   },
+   {
+      "code": "med_n",
+      "title": "Medical Nursing",
+      "files": [
+         {
+            "fileName": "Lecture Notes.pdf",
+            "fileId": "abc123",
+            "type": "pdf",
+            "sizeMB": 2.4
+         },
+         {
+            "fileName": "Slide Deck.pptx",
+            "fileId": "def456",
+            "type": "presentation",
+            "sizeMB": 1.8
+         },
+         {
+            "fileName": "Video Lecture.mp4",
+            "fileId": "ghi789",
+            "type": "video",
+            "duration": "00:30:12",
+            "sizeMB": 48.2
+         }
+      ]
+   },
+   {
+      "code": "obs_g",
+      "title": "Obstetrics and Gynecology",
+      "files": [
+         {
+            "fileName": "Lecture Notes.pdf",
+            "fileId": "abc123",
+            "type": "pdf",
+            "sizeMB": 2.4
+         },
+         {
+            "fileName": "Slide Deck.pptx",
+            "fileId": "def456",
+            "type": "presentation",
+            "sizeMB": 1.8
+         },
+         {
+            "fileName": "Video Lecture.mp4",
+            "fileId": "ghi789",
+            "type": "video",
+            "duration": "00:30:12",
+            "sizeMB": 48.2
+         }
+      ]
+   },
+   {
+      "code": "ped_n",
+      "title": "Pediatric Nursing",
+      "files": [
+         {
+            "fileName": "Lecture Notes.pdf",
+            "fileId": "abc123",
+            "type": "pdf",
+            "sizeMB": 2.4
+         },
+         {
+            "fileName": "Slide Deck.pptx",
+            "fileId": "def456",
+            "type": "presentation",
+            "sizeMB": 1.8
+         },
+         {
+            "fileName": "Video Lecture.mp4",
+            "fileId": "ghi789",
+            "type": "video",
+            "duration": "00:30:12",
+            "sizeMB": 48.2
+         }
+      ]
+   },
+   {
+      "code": "pub_h",
+      "title": "Public Health",
+      "files": [
+         {
+            "fileName": "Lecture Notes.pdf",
+            "fileId": "abc123",
+            "type": "pdf",
+            "sizeMB": 2.4
+         },
+         {
+            "fileName": "Slide Deck.pptx",
+            "fileId": "def456",
+            "type": "presentation",
+            "sizeMB": 1.8
+         },
+         {
+            "fileName": "Video Lecture.mp4",
+            "fileId": "ghi789",
+            "type": "video",
+            "duration": "00:30:12",
+            "sizeMB": 48.2
+         }
+      ]
+   },
+   {
+      "code": "res_m",
+      "title": "Research Method",
+      "files": [
+         {
+            "fileName": "Lecture Notes.pdf",
+            "fileId": "abc123",
+            "type": "pdf",
+            "sizeMB": 2.4
+         },
+         {
+            "fileName": "Slide Deck.pptx",
+            "fileId": "def456",
+            "type": "presentation",
+            "sizeMB": 1.8
+         },
+         {
+            "fileName": "Video Lecture.mp4",
+            "fileId": "ghi789",
+            "type": "video",
+            "duration": "00:30:12",
+            "sizeMB": 48.2
+         }
+      ]
+   },
+   {
+      "code": "sur_n_ii",
+      "title": "Surgical Nursing II",
+      "files": [
+         {
+            "fileName": "Study Guide.pdf",
+            "fileId": "xyz987",
+            "type": "pdf",
+            "sizeMB": 3.1
+         },
+         {
+            "fileName": "Lab Manual.pdf",
+            "fileId": "klm321",
+            "type": "pdf",
+            "sizeMB": 2.6
+         },
+         {
+            "fileName": "Anatomy Overview.mp4",
+            "fileId": "uvw555",
+            "type": "video",
+            "duration": "00:42:09",
+            "sizeMB": 60.3
+         }
+      ]
+   }
 ]

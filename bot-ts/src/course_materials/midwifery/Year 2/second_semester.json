@@ -1,52 +1,175 @@
 [
-  {
-    "code": "NUR101",
-    "title": "Introduction to Nursing",
-    "files": [
-      {
-        "fileName": "Lecture Notes.pdf",
-        "fileId": "abc123",
-        "type": "pdf",
-        "sizeMB": 2.4
-      },
-      {
-        "fileName": "Slide Deck.pptx",
-        "fileId": "def456",
-        "type": "presentation",
-        "sizeMB": 1.8
-      },
-      {
-        "fileName": "Video Lecture.mp4",
-        "fileId": "ghi789",
-        "type": "video",
-        "duration": "00:30:12",
-        "sizeMB": 48.2
-      }
-    ]
-  },
-  {
-    "code": "BIO104",
-    "title": "Human Anatomy",
-    "files": [
-      {
-        "fileName": "Study Guide.pdf",
-        "fileId": "xyz987",
-        "type": "pdf",
-        "sizeMB": 3.1
-      },
-      {
-        "fileName": "Lab Manual.pdf",
-        "fileId": "klm321",
-        "type": "pdf",
-        "sizeMB": 2.6
-      },
-      {
-        "fileName": "Anatomy Overview.mp4",
-        "fileId": "uvw555",
-        "type": "video",
-        "duration": "00:42:09",
-        "sizeMB": 60.3
-      }
-    ]
-  }
+   {
+      "code": "gen_n_iii",
+      "title": "General Nursing III",
+      "files": [
+         {
+            "fileName": "Lecture Notes.pdf",
+            "fileId": "abc123",
+            "type": "pdf",
+            "sizeMB": 2.4
+         },
+         {
+            "fileName": "Slide Deck.pptx",
+            "fileId": "def456",
+            "type": "presentation",
+            "sizeMB": 1.8
+         },
+         {
+            "fileName": "Video Lecture.mp4",
+            "fileId": "ghi789",
+            "type": "video",
+            "duration": "00:30:12",
+            "sizeMB": 48.2
+         }
+      ]
+   }, {
+      "code": "lit_ii",
+      "title": "Literature II",
+      "files": [
+         {
+            "fileName": "Lecture Notes.pdf",
+            "fileId": "abc123",
+            "type": "pdf",
+            "sizeMB": 2.4
+         },
+         {
+            "fileName": "Slide Deck.pptx",
+            "fileId": "def456",
+            "type": "presentation",
+            "sizeMB": 1.8
+         },
+         {
+            "fileName": "Video Lecture.mp4",
+            "fileId": "ghi789",
+            "type": "video",
+            "duration": "00:30:12",
+            "sizeMB": 48.2
+         }
+      ]
+   }, {
+      "code": "nor_l",
+      "title": "Normal Labour",
+      "files": [
+         {
+            "fileName": "Lecture Notes.pdf",
+            "fileId": "abc123",
+            "type": "pdf",
+            "sizeMB": 2.4
+         },
+         {
+            "fileName": "Slide Deck.pptx",
+            "fileId": "def456",
+            "type": "presentation",
+            "sizeMB": 1.8
+         },
+         {
+            "fileName": "Video Lecture.mp4",
+            "fileId": "ghi789",
+            "type": "video",
+            "duration": "00:30:12",
+            "sizeMB": 48.2
+         }
+      ]
+   }, {
+      "code": "pha_ii",
+      "title": "Pharmacology II",
+      "files": [
+         {
+            "fileName": "Lecture Notes.pdf",
+            "fileId": "abc123",
+            "type": "pdf",
+            "sizeMB": 2.4
+         },
+         {
+            "fileName": "Slide Deck.pptx",
+            "fileId": "def456",
+            "type": "presentation",
+            "sizeMB": 1.8
+         },
+         {
+            "fileName": "Video Lecture.mp4",
+            "fileId": "ghi789",
+            "type": "video",
+            "duration": "00:30:12",
+            "sizeMB": 48.2
+         }
+      ]
+   }, {
+      "code": "preg_i",
+      "title": "Pregnancy I",
+      "files": [
+         {
+            "fileName": "Lecture Notes.pdf",
+            "fileId": "abc123",
+            "type": "pdf",
+            "sizeMB": 2.4
+         },
+         {
+            "fileName": "Slide Deck.pptx",
+            "fileId": "def456",
+            "type": "presentation",
+            "sizeMB": 1.8
+         },
+         {
+            "fileName": "Video Lecture.mp4",
+            "fileId": "ghi789",
+            "type": "video",
+            "duration": "00:30:12",
+            "sizeMB": 48.2
+         }
+      ]
+   },
+   {
+      "code": "rep_p",
+      "title": "Reproductive Physiology",
+      "files": [
+         {
+            "fileName": "Lecture Notes.pdf",
+            "fileId": "abc123",
+            "type": "pdf",
+            "sizeMB": 2.4
+         },
+         {
+            "fileName": "Slide Deck.pptx",
+            "fileId": "def456",
+            "type": "presentation",
+            "sizeMB": 1.8
+         },
+         {
+            "fileName": "Video Lecture.mp4",
+            "fileId": "ghi789",
+            "type": "video",
+            "duration": "00:30:12",
+            "sizeMB": 48.2
+         }
+      ]
+   },
+   {
+      "code": "sur_n_i",
+      "title": "Surgical Nursing I",
+      "files": [
+         {
+            "fileName": "Study Guide.pdf",
+            "fileId": "xyz987",
+            "type": "pdf",
+            "sizeMB": 3.1
+         },
+         {
+            "fileName": "Lab Manual.pdf",
+            "fileId": "klm321",
+            "type": "pdf",
+            "sizeMB": 2.6
+         },
+         {
+            "fileName": "Anatomy Overview.mp4",
+            "fileId": "uvw555",
+            "type": "video",
+            "duration": "00:42:09",
+            "sizeMB": 60.3
+         }
+      ]
+   }
 ]
+
+

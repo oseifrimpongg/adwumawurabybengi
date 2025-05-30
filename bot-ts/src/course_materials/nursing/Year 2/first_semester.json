@@ -1,52 +1,202 @@
 [
-  {
-    "code": "NUR101",
-    "title": "Introduction to Nursing",
-    "files": [
-      {
-        "fileName": "Lecture Notes.pdf",
-        "fileId": "abc123",
-        "type": "pdf",
-        "sizeMB": 2.4
-      },
-      {
-        "fileName": "Slide Deck.pptx",
-        "fileId": "def456",
-        "type": "presentation",
-        "sizeMB": 1.8
-      },
-      {
-        "fileName": "Video Lecture.mp4",
-        "fileId": "ghi789",
-        "type": "video",
-        "duration": "00:30:12",
-        "sizeMB": 48.2
-      }
-    ]
-  },
-  {
-    "code": "BIO104",
-    "title": "Human Anatomy",
-    "files": [
-      {
-        "fileName": "Study Guide.pdf",
-        "fileId": "xyz987",
-        "type": "pdf",
-        "sizeMB": 3.1
-      },
-      {
-        "fileName": "Lab Manual.pdf",
-        "fileId": "klm321",
-        "type": "pdf",
-        "sizeMB": 2.6
-      },
-      {
-        "fileName": "Anatomy Overview.mp4",
-        "fileId": "uvw555",
-        "type": "video",
-        "duration": "00:42:09",
-        "sizeMB": 60.3
-      }
-    ]
-  }
+   {
+      "code": "ana_ii",
+      "title": "Anatomy II",
+      "files": [
+         {
+            "fileName": "Lecture Notes.pdf",
+            "fileId": "abc123",
+            "type": "pdf",
+            "sizeMB": 2.4
+         },
+         {
+            "fileName": "Slide Deck.pptx",
+            "fileId": "def456",
+            "type": "presentation",
+            "sizeMB": 1.8
+         },
+         {
+            "fileName": "Video Lecture.mp4",
+            "fileId": "ghi789",
+            "type": "video",
+            "duration": "00:30:12",
+            "sizeMB": 48.2
+         }
+      ]
+   },
+   {
+      "code": "beh_s_ii",
+      "title": "Behavioral Sciences II",
+      "files": [
+         {
+            "fileName": "Study Guide.pdf",
+            "fileId": "xyz987",
+            "type": "pdf",
+            "sizeMB": 3.1
+         },
+         {
+            "fileName": "Lab Manual.pdf",
+            "fileId": "klm321",
+            "type": "pdf",
+            "sizeMB": 2.6
+         },
+         {
+            "fileName": "Anatomy Overview.mp4",
+            "fileId": "uvw555",
+            "type": "video",
+            "duration": "00:42:09",
+            "sizeMB": 60.3
+         }
+      ]
+   },
+   {
+      "code": "gen_n_ii",
+      "title": "General Nursing II",
+      "files": [
+         {
+            "fileName": "Study Guide.pdf",
+            "fileId": "xyz987",
+            "type": "pdf",
+            "sizeMB": 3.1
+         },
+         {
+            "fileName": "Lab Manual.pdf",
+            "fileId": "klm321",
+            "type": "pdf",
+            "sizeMB": 2.6
+         },
+         {
+            "fileName": "Anatomy Overview.mp4",
+            "fileId": "uvw555",
+            "type": "video",
+            "duration": "00:42:09",
+            "sizeMB": 60.3
+         }
+      ]
+   },
+   {
+      "code": "lit_i",
+      "title": "Literature I",
+      "files": [
+         {
+            "fileName": "Study Guide.pdf",
+            "fileId": "xyz987",
+            "type": "pdf",
+            "sizeMB": 3.1
+         },
+         {
+            "fileName": "Lab Manual.pdf",
+            "fileId": "klm321",
+            "type": "pdf",
+            "sizeMB": 2.6
+         },
+         {
+            "fileName": "Anatomy Overview.mp4",
+            "fileId": "uvw555",
+            "type": "video",
+            "duration": "00:42:09",
+            "sizeMB": 60.3
+         }
+      ]
+   },
+   {
+      "code": "mic_ii",
+      "title": "Microbiology II",
+      "files": [
+         {
+            "fileName": "Study Guide.pdf",
+            "fileId": "xyz987",
+            "type": "pdf",
+            "sizeMB": 3.1
+         },
+         {
+            "fileName": "Lab Manual.pdf",
+            "fileId": "klm321",
+            "type": "pdf",
+            "sizeMB": 2.6
+         },
+         {
+            "fileName": "Anatomy Overview.mp4",
+            "fileId": "uvw555",
+            "type": "video",
+            "duration": "00:42:09",
+            "sizeMB": 60.3
+         }
+      ]
+   },
+   {
+      "code": "pat",
+      "title": "Pathology",
+      "files": [
+         {
+            "fileName": "Study Guide.pdf",
+            "fileId": "xyz987",
+            "type": "pdf",
+            "sizeMB": 3.1
+         },
+         {
+            "fileName": "Lab Manual.pdf",
+            "fileId": "klm321",
+            "type": "pdf",
+            "sizeMB": 2.6
+         },
+         {
+            "fileName": "Anatomy Overview.mp4",
+            "fileId": "uvw555",
+            "type": "video",
+            "duration": "00:42:09",
+            "sizeMB": 60.3
+         }
+      ]
+   },
+   {
+      "code": "pha_i",
+      "title": "Pharmacology I",
+      "files": [
+         {
+            "fileName": "Study Guide.pdf",
+            "fileId": "xyz987",
+            "type": "pdf",
+            "sizeMB": 3.1
+         },
+         {
+            "fileName": "Lab Manual.pdf",
+            "fileId": "klm321",
+            "type": "pdf",
+            "sizeMB": 2.6
+         },
+         {
+            "fileName": "Anatomy Overview.mp4",
+            "fileId": "uvw555",
+            "type": "video",
+            "duration": "00:42:09",
+            "sizeMB": 60.3
+         }
+      ]
+   },
+   {
+      "code": "phy_ii",
+      "title": "Physiology II",
+      "files": [
+         {
+            "fileName": "Study Guide.pdf",
+            "fileId": "xyz987",
+            "type": "pdf",
+            "sizeMB": 3.1
+         },
+         {
+            "fileName": "Lab Manual.pdf",
+            "fileId": "klm321",
+            "type": "pdf",
+            "sizeMB": 2.6
+         },
+         {
+            "fileName": "Anatomy Overview.mp4",
+            "fileId": "uvw555",
+            "type": "video",
+            "duration": "00:42:09",
+            "sizeMB": 60.3
+         }
+      ]
+   }
 ]
