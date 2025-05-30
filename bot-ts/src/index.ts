@@ -30,6 +30,10 @@ const bot = new Telegraf<MyContext>(process.env.BOT_TOKEN ?? "");
 const stage = new Scenes.Stage<MyContext>();
 stage.register(registrationWizard);
 
+// Server
+app.use(bot.webhookCallback("/"));
+app.use(express.json());
+
 // Middleware
 bot.use(session());
 bot.use(channelSubscription);
