@@ -44,5 +44,5 @@ bot.on("callback_query", InterceptCallback);
 
 
 // Bot launch
-bot.telegram.setWebhook(process.env.RepoService);
+bot.telegram.setWebhook(process.env.RepoService ?? "");
 app.listen(port, () => console.log(`Server is running on ${port}`));
