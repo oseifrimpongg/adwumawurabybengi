@@ -5,7 +5,7 @@ import { MyContext } from "../types/types";
 const callbackRoutes: [RegExp, (ctx: MyContext, previousPage: ICallbackData) => void][] = [
    [/^\{"a":"lsem","s":\d+,"y":\d+,"p":"[A-Za-z]{3}"\}$/, ShowSemesters],
    [/^\{"a":"lec","s":\d+,"y":\d+,"p":"[A-Za-z]{3}"\}$/, ShowCourses],
-   [/^\{"a":"cou","s":\d+,"p":"[A-Za-z]+","y":\d+,"c":"[A-Za-z0-9]+\"\}$/, ShowFiles],
+   [/^\{"a":"cou","s":\d+,"p":"[A-Za-z]+","y":\d+,"c":"[A-Za-z0-9_]+\"\}$/, ShowFiles]
 ];
 
 export const InterceptCallback = async (ctx: MyContext) =>
