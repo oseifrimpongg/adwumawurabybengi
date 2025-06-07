@@ -1,11 +1,12 @@
-import { ShowCourses, ShowFiles, ShowSemesters } from "../services/courseMaterialService";
-import { ICallbackData } from "../types/callbackTypes";
+import { ShowCourses, ShowFileInformation, ShowFiles, ShowSemesters } from "../services/courseMaterialService";
+import { ICallbackData, IFileData } from "../types/callbackTypes";
 import { MyContext } from "../types/types";
 
 const callbackRoutes: [RegExp, (ctx: MyContext, previousPage: ICallbackData) => void][] = [
    [/^\{"a":"lsem","s":\d+,"y":\d+,"p":"[A-Za-z]{3}"\}$/, ShowSemesters],
    [/^\{"a":"lec","s":\d+,"y":\d+,"p":"[A-Za-z]{3}"\}$/, ShowCourses],
-   [/^\{"a":"cou","s":\d+,"p":"[A-Za-z]+","y":\d+,"c":"[A-Za-z0-9_]+\"\}$/, ShowFiles]
+   [/^\{"a":"cou","s":\d+,"p":"[A-Za-z]+","y":\d+,"c":"[A-Za-z0-9_]+\"\}$/, ShowFiles],
+   [/^\{"a":"file","s":\d+,"y":\d+,"p":"[A-Za-z]+","c":"[A-Za-z0-9_]+","fileId":"[A-Za-z0-9_+]+"\}$/, (ctx, data) => ShowFileInformation(ctx, data as IFileData)]
 ];
 
 export const InterceptCallback = async (ctx: MyContext) =>
