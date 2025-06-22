@@ -1,0 +1,40 @@
+{
+   "name": "bot-ts",
+   "version": "1.0.0",
+   "description": "",
+   "main": "index.js",
+   "scripts": {
+      "dev": "nodemon",
+      "build": "tsc && npm run copy-materials",
+      "copy-materials": "cp -r ./src/course_materials ./dist/course_materials",
+      "start": "node ./dist/index.js",
+      "deploy": "npx ts-node ./src/index.ts"
+   },
+   "keywords": [ ],
+   "author": "Michael Osei Frimpong",
+   "license": "ISC",
+   "type": "commonjs",
+   "dependencies": {
+      "dotenv": "^16.5.0",
+      "express": "^5.1.0",
+      "mongoose": "^8.15.0",
+      "telegraf": "^4.16.3",
+      "typescript": "^5.8.3"
+   },
+   "devDependencies": {
+      "@telegraf/types": "^8.3.1",
+      "@types/dotenv": "^6.1.1",
+      "@types/express": "^5.0.2",
+      "@types/mongoose": "^5.11.96",
+      "@types/node": "^22.15.21",
+      "nodemon": "^3.1.10",
+      "ts-node": "^10.9.2"
+   },
+   "nodemonConfig": {
+      "watch": [
+         "src"
+      ],
+      "ext": "ts",
+      "exec": "ts-node src/index.ts"
+   }
+}
