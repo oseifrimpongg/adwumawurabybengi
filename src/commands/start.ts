@@ -9,7 +9,7 @@ export const StartCommand = async (ctx: Context) =>
 
    return ctx.replyWithMarkdownV2(text,
       Markup.keyboard([
-         ["Course Materials 📙", "Past Questions 🯄"],
+         ["Course Materials 📙", "Past Questions 📖"],
          ["AI Chat 🤖"]
       ]).oneTime().resize()
    );
