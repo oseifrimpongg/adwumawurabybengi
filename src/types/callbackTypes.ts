@@ -14,7 +14,14 @@ export enum LearningMaterial
    Past_Questions
 }
 
+export enum FileProcessAction
+{
+   Summary = "s",
+   Quiz = "q",
+   Bookmark = "b"
+}
 export interface IFileData extends ICallbackData
 {
-   file_index: string;
+   i: string;
+   pa?: FileProcessAction;
 }
